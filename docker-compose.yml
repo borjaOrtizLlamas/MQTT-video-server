@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  topic:
+    build:
+      context: ./topic/
+    environment:
+      MQTT_BROKER: "mosquitto"
+      MQTT_RECEIVE: "test-borja"
+      MQTT_PORT: "1885"
+    depends_on:
+      - mosquitto
+    networks:
+      - custom_network
+    volumes:
+      - "./video:/app/data"
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    ports:
+      - "1885:1885"
+    volumes:
+      - ./broker/mosquitto.conf:/mosquitto/config/mosquitto.conf
+    networks:
+      - custom_network
+
+networks:
+  custom_network:
+    driver: bridge

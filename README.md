@@ -5,7 +5,7 @@
 **Tested on macOS Ventura 13.4**
 
 ## Overview:
-This project gives you the support to create a video with your camara and save it in the server, it uses MQTT broker. 
+This project gives you the support to create a video with your camara and save it in the server, it uses mosquitto as MQTT  broker. 
 
 ## Components:
 (server part)
